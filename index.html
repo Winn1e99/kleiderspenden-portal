@@ -50,13 +50,14 @@
             <h2>Willkommen auf dem Kleiderspender Portal!</h2>
             <p>Bitte füllen Sie das folgende Formular aus, um Ihre Kleiderspende zu registrieren:</p>
             <p>Mit <span class="text-danger" aria-hidden="true">*</span> markierte Felder sind Pflichtfelder.</p>
+        
 
             <form id="spendenFormular">
 
                 <!-- 1. Name -->
                 <div class="mb-3">
                     <label for="name" class="form-label">
-                        Name:<span class="text-danger" aria-hidden="true">*</span>
+                        Name<span class="text-danger" aria-hidden="true">*</span>:
                     </label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
@@ -64,23 +65,39 @@
                 <!-- 2. E-Mail -->
                 <div class="mb-3">
                     <label for="email" class="form-label">
-                        E-Mail:<span class="text-danger" aria-hidden="true">*</span>
+                        E-Mail:
                     </label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email">
                 </div>
 
                 <!-- 3. Adresse -->
                 <div class="mb-3">
-                    <label for="address" class="form-label">
-                        Adresse:<span class="text-danger" aria-hidden="true">*</span>
+                    <label for="strasse" class="form-label">
+                        Straße und Hausnummer<span class="text-danger" aria-hidden="true">*</span>:
                     </label>
-                    <input type="text" class="form-control" id="address" name="address" required>
+                    <input type="text" class="form-control" id="strasse" name="strasse" required>
+                </div>
+                <!-- Ort & PLZ-->
+                <div class="row">  
+                    <div class="col-md-8 mb-3">
+                        <label for="ort" class="form-label">
+                            Ort<span class="text-danger" aria-hidden="true">*</span>:
+                        </label>
+                        <input type="text" class="form-control" id="ort" name="ort" required>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label for="plz" class="form-label">
+                            Postleitzahl<span class="text-danger" aria-hidden="true">*</span>:
+                        </label>
+                        <input type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" title="Bitte fünf Ziffern eingeben" class="form-control" id="plz" name="plz" required>
+                    </div>
                 </div>
 
                 <!-- 4. Art der Kleidung -->
                 <div class="mb-3">
                     <label for="clothes" class="form-label">
-                        Art der Kleidung:<span class="text-danger" aria-hidden="true">*</span>
+                        Art der Kleidung<span class="text-danger" aria-hidden="true">*</span>:
                     </label>
                     <select class="form-select" id="clothes" name="clothes" required>
                     <option value="">Bitte wählen</option>
@@ -95,7 +112,7 @@
                 <!-- 5. Krisengebiet -->
                 <div class="mb-3">
                     <label for="location" class="form-label">
-                        Krisengebiet:<span class="text-danger" aria-hidden="true">*</span>
+                        Krisengebiet<span class="text-danger" aria-hidden="true">*</span>:
                     </label>
                     <select class="form-select" id="location" name="location" required>
                     <option value="">Bitte wählen</option>
