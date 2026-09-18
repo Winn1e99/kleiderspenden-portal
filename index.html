@@ -50,10 +50,27 @@
             <h2>Willkommen auf dem Kleiderspender Portal!</h2>
             <p>Bitte füllen Sie das folgende Formular aus, um Ihre Kleiderspende zu registrieren:</p>
             <p>Mit <span class="text-danger" aria-hidden="true">*</span> markierte Felder sind Pflichtfelder.</p>
-        
+
+            <fieldset class="mb-3">
+                <legend>Art der Übergabe</legend>
+
+                <!-- Radio Check: Abholung & Geschaeftsstelle -->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="abholung" name="uebergabeweg" id="abholung" checked>
+                    <label class="form-check-label" for="abholung">
+                        Abholung
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="geschaeftsstelle" name="uebergabeweg" id="geschaeftsstelle">
+                    <label class="form-check-label" for="geschaeftsstelle">
+                        Geschäftsstelle
+                    </label>
+                </div>
+            </fieldset>
 
             <form id="spendenFormular">
-
+                
                 <!-- 1. Name -->
                 <div class="mb-3">
                     <label for="name" class="form-label">
