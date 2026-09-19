@@ -8,6 +8,8 @@ const abholFelder = document.getElementById("abholFelder");
 const abholInputs = abholFelder.querySelectorAll("input");
 const formular = document.getElementById("spendenFormular");
 const plzInput = document.getElementById("plz");
+const plzHinweisBox = document.getElementById("plzHinweisBox");
+const btnZuGeschaeftsstelle = document.getElementById("btnZuGeschaeftsstelle");
 
 function felderAktualisieren() 
 {
@@ -34,6 +36,10 @@ function felderAktualisieren()
         {
             feld.required = false;
         });
+
+        // Wenn auf Geschäftstelle gewechselt wird, eventuelle Fehler/Boxen entfernen
+        plzInput.classList.remove("is-invalid");
+        plzHinweisBox.classList.add("d-none");
     }
 }
 
@@ -52,11 +58,19 @@ formular.addEventListener("submit", function (event)
     event.preventDefault(); // Standard-Formularübermittlung verhindern
     console.log("Formular abgeschickt");
 
+    // Wichtig: Fehleranzeige vor jedem neuen Abseneden zurücksetzen
+    plzInput.classList.remove("is-invalid");
+    plzHinweisBox.classList.add("d-none");
+
     const gewaehlt = document.querySelector('input[name="uebergabeweg"]:checked').value;
     if (gewaehlt === "abholung" && !plzIstImAbholgebiet()) 
     {
         console.log("PLZ-Prüfung FEHLGESCHLAGEN: Nicht im selben Gebiet.");
-        alert("Abholung nicht möglich: Die Postleitzahl muss mit 60 beginnen (Gebiet Frankfurt).");
+        // Roter Rahmen und Fehlermeldung am Feld
+        plzInput.classList.add("is-invalid");
+        // Gelbe Hinweisbox mit Button einblenden
+        plzHinweisBox.classList.remove("d-none");
+        plzInput.focus(); // Setzt den Fokus auf das PLZ-Feld, damit der Benutzer sofort sieht, wo das Problem liegt
         return;
     }
     console.log("PLZ-Prüfung ERFOLGREICH oder Geschäftsstelle gewählt.");
@@ -66,6 +80,13 @@ formular.addEventListener("submit", function (event)
 radios.forEach(function (radio) 
 {
     radio.addEventListener('change', felderAktualisieren);
+});
+
+// Klick auf die Schaltfläche in der gelben Hinweisbox
+btnZuGeschaeftsstelle.addEventListener("click", function ()
+{
+    document.getElementById("geschaeftsstelle").checked = true; // 1. Radiobutton auf Geschäftsstelle setzen
+    felderAktualisieren(); // 2. Formularansicht aktualisieren (da JS kein 'change'-Event auslöst)
 });
 
 felderAktualisieren(); // Initialer Aufruf, um den Zustand beim Laden der Seite zu setzen

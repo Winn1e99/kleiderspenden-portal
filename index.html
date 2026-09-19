@@ -100,6 +100,10 @@
                                 Postleitzahl<span class="text-danger" aria-hidden="true">*</span>:
                             </label>
                             <input type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" title="Bitte fünf Ziffern eingeben" class="form-control" id="plz" name="plz" required>
+                            <!-- Kurzer Fehlertext am Feld -->
+                             <div class="invalid-feedback">
+                                Abholung nur im PLZ-Bereich 60... möglich.
+                             </div>
                         </div>
 
                         <div class="col-md-8 mb-3">
@@ -110,6 +114,17 @@
                         </div>
 
                     </div>
+
+                    <!-- Die Hinweisbox mit Aktion-Button (standardmäßig ausgeblendet) -->
+                    <div id="plzHinweisBox" class="alert alert-warning d-none mb-3" role="alert">
+                        <p class="mb-2">
+                            Ihre Adresse liegt außerhalb unseres Abholgebiets. Sie können Ihre Kleiderspende aber gerne direkt an unserer Geschäftsstelle abgeben.
+                        </p>
+                        <button type="button" id="btnZuGeschaeftsstelle" class="btn btn-warning btn-sm">
+                            Auf Geschäftsstelle umstellen
+                        </button>
+                    </div>
+
                 </div>
 
                 <!-- 4. Art der Kleidung -->
