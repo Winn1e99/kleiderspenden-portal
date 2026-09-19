@@ -3,6 +3,14 @@ console.log("app.js läuft");
 const radios = document.querySelectorAll('input[name="uebergabeweg"]');
 const abholFelder = document.getElementById("abholFelder");
 const abholInputs = abholFelder.querySelectorAll("input");
+const formular = document.getElementById("spendenFormular");
+
+formular.addEventListener("submit", function(event)
+{
+    // Überprüfen, ob die Pflichtfelder ausgefüllt sind
+    event.preventDefault(); // Standard-Formularübermittlung verhindern
+    console.log("Formular abgeschickt");
+});
 
 function felderAktualisieren() 
 {
