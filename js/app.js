@@ -38,8 +38,7 @@ function felderAktualisieren()
         });
 
         // Wenn auf Geschäftstelle gewechselt wird, eventuelle Fehler/Boxen entfernen
-        plzInput.classList.remove("is-invalid");
-        plzHinweisBox.classList.add("d-none");
+        fehleranzeigeZuruecksetzen();
     }
 }
 
@@ -53,14 +52,19 @@ function plzIstImAbholgebiet()
     return kundenPrefix === referenzPrefix; // liefert true oder false
 }
 
+function fehleranzeigeZuruecksetzen()
+{
+    plzInput.classList.remove("is-invalid");
+    plzHinweisBox.classList.add("d-none");
+}
+
 formular.addEventListener("submit", function (event) 
 {
     event.preventDefault(); // Standard-Formularübermittlung verhindern
     console.log("Formular abgeschickt");
 
     // Wichtig: Fehleranzeige vor jedem neuen Abseneden zurücksetzen
-    plzInput.classList.remove("is-invalid");
-    plzHinweisBox.classList.add("d-none");
+    fehleranzeigeZuruecksetzen();
 
     const gewaehlt = document.querySelector('input[name="uebergabeweg"]:checked').value;
     if (gewaehlt === "abholung" && !plzIstImAbholgebiet()) 
@@ -88,5 +92,8 @@ btnZuGeschaeftsstelle.addEventListener("click", function ()
     document.getElementById("geschaeftsstelle").checked = true; // 1. Radiobutton auf Geschäftsstelle setzen
     felderAktualisieren(); // 2. Formularansicht aktualisieren (da JS kein 'change'-Event auslöst)
 });
+
+// Fehlermarkierung und Hinweisbox sofort entfernen, sobald die PLZ geändert wird
+plzInput.addEventListener("input", fehleranzeigeZuruecksetzen);
 
 felderAktualisieren(); // Initialer Aufruf, um den Zustand beim Laden der Seite zu setzen
