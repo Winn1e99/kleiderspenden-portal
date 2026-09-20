@@ -46,120 +46,180 @@
         </header>
 
         <main class="container my-4">
-            <h1>Kleiderspende registrieren</h1>
-            <p>Bitte füllen Sie das folgende Formular aus, um Ihre Kleiderspende zu registrieren:</p>
-            <p>Mit <span class="text-danger">*</span> markierte Felder sind Pflichtfelder.</p>
 
-            <form id="spendenFormular">
-                <fieldset class="mb-3">
-                    <legend>Art der Übergabe</legend>
+            <section id="start">
+                <h1>Kleiderspende registrieren</h1>
+                <p>Bitte füllen Sie das folgende Formular aus, um Ihre Kleiderspende zu registrieren:</p>
+                <p>Mit <span class="text-danger">*</span> markierte Felder sind Pflichtfelder.</p>
 
-                    <!-- Radio Check: Abholung & Geschaeftsstelle -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="abholung" name="uebergabeweg" id="abholung" checked>
-                        <label class="form-check-label" for="abholung">
-                            Abholung
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="geschaeftsstelle" name="uebergabeweg" id="geschaeftsstelle">
-                        <label class="form-check-label" for="geschaeftsstelle">
-                            Geschäftsstelle
-                        </label>
-                    </div>
-                </fieldset>
+                <form id="spendenFormular">
+                    <fieldset class="mb-3">
+                        <legend>Art der Übergabe</legend>
 
-                <div id="abholFelder">
-                    <!-- 1. Name -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">
-                            Name<span class="text-danger" aria-hidden="true">*</span>:
-                        </label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-
-                    <!-- 2. E-Mail -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
-                            E-Mail:
-                        </label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-
-                    <!-- 3. Straße und Hausnummer -->
-                    <div class="mb-3">
-                        <label for="strasse" class="form-label">
-                            Straße und Hausnummer<span class="text-danger" aria-hidden="true">*</span>:
-                        </label>
-                        <input type="text" class="form-control" id="strasse" name="strasse" required>
-                    </div>
-                    <!-- Ort & PLZ-->
-                    <div class="row">  
-                        <div class="col-md-4 mb-3">
-                            <label for="plz" class="form-label">
-                                Postleitzahl<span class="text-danger" aria-hidden="true">*</span>:
+                        <!-- Radio Check: Abholung & Geschaeftsstelle -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="abholung" name="uebergabeweg" id="abholung" checked>
+                            <label class="form-check-label" for="abholung">
+                                Abholung
                             </label>
-                            <input type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" title="Bitte fünf Ziffern eingeben" class="form-control" id="plz" name="plz" required>
-                            <!-- Kurzer Fehlertext am Feld -->
-                             <div class="invalid-feedback">
-                                Abholung nur im PLZ-Bereich 60... möglich.
-                             </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" value="geschaeftsstelle" name="uebergabeweg" id="geschaeftsstelle">
+                            <label class="form-check-label" for="geschaeftsstelle">
+                                Geschäftsstelle
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div id="abholFelder">
+                        <!-- 1. Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">
+                                Name<span class="text-danger" aria-hidden="true">*</span>:
+                            </label>
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
 
-                        <div class="col-md-8 mb-3">
-                            <label for="ort" class="form-label">
-                                Ort<span class="text-danger" aria-hidden="true">*</span>:
+                        <!-- 2. E-Mail -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                E-Mail:
                             </label>
-                            <input type="text" class="form-control" id="ort" name="ort" required>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+
+                        <!-- 3. Straße und Hausnummer -->
+                        <div class="mb-3">
+                            <label for="strasse" class="form-label">
+                                Straße und Hausnummer<span class="text-danger" aria-hidden="true">*</span>:
+                            </label>
+                            <input type="text" class="form-control" id="strasse" name="strasse" required>
+                        </div>
+                        <!-- Ort & PLZ-->
+                        <div class="row">  
+                            <div class="col-md-4 mb-3">
+                                <label for="plz" class="form-label">
+                                    Postleitzahl<span class="text-danger" aria-hidden="true">*</span>:
+                                </label>
+                                <input type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" title="Bitte fünf Ziffern eingeben" class="form-control" id="plz" name="plz" required>
+                                <!-- Kurzer Fehlertext am Feld -->
+                                <div class="invalid-feedback">
+                                    Abholung nur im PLZ-Bereich 60... möglich.
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <label for="ort" class="form-label">
+                                    Ort<span class="text-danger" aria-hidden="true">*</span>:
+                                </label>
+                                <input type="text" class="form-control" id="ort" name="ort" required>
+                            </div>
+
+                        </div>
+
+                        <!-- Die Hinweisbox mit Aktion-Button (standardmäßig ausgeblendet) -->
+                        <div id="plzHinweisBox" class="alert alert-warning d-none mb-3" role="alert">
+                            <p class="mb-2">
+                                Ihre Adresse liegt außerhalb unseres Abholgebiets. Sie können Ihre Kleiderspende aber gerne direkt an unserer Geschäftsstelle abgeben.
+                            </p>
+                            <button type="button" id="btnZuGeschaeftsstelle" class="btn btn-warning btn-sm">
+                                Auf Geschäftsstelle umstellen
+                            </button>
                         </div>
 
                     </div>
 
-                    <!-- Die Hinweisbox mit Aktion-Button (standardmäßig ausgeblendet) -->
-                    <div id="plzHinweisBox" class="alert alert-warning d-none mb-3" role="alert">
-                        <p class="mb-2">
-                            Ihre Adresse liegt außerhalb unseres Abholgebiets. Sie können Ihre Kleiderspende aber gerne direkt an unserer Geschäftsstelle abgeben.
-                        </p>
-                        <button type="button" id="btnZuGeschaeftsstelle" class="btn btn-warning btn-sm">
-                            Auf Geschäftsstelle umstellen
-                        </button>
+                    <!-- 4. Art der Kleidung -->
+                    <div class="mb-3">
+                        <label for="clothes" class="form-label">
+                            Art der Kleidung<span class="text-danger" aria-hidden="true">*</span>:
+                        </label>
+                        <select class="form-select" id="clothes" name="clothes" required>
+                        <option value="">Bitte wählen</option>
+                        
+                        <option value="herren">Herren</option>
+                        <option value="damen">Damen</option>
+                        <option value="kinder">Kinder</option>
+                        <option value="gemischt">Gemischt</option>
+                        </select>
                     </div>
 
-                </div>
+                    <!-- 5. Krisengebiet -->
+                    <div class="mb-3">
+                        <label for="location" class="form-label">
+                            Krisengebiet<span class="text-danger" aria-hidden="true">*</span>:
+                        </label>
+                        <select class="form-select" id="location" name="location" required>
+                        <option value="">Bitte wählen</option>
+                        <option value="beliebig">Wo es am dringendsten gebraucht wird</option>
+                        <option value="ukraine">Ukraine</option>
+                        <option value="syrien">Syrien</option>
+                        <option value="afghanistan">Afghanistan</option>
+                        </select>
+                    </div>
 
-                <!-- 4. Art der Kleidung -->
-                <div class="mb-3">
-                    <label for="clothes" class="form-label">
-                        Art der Kleidung<span class="text-danger" aria-hidden="true">*</span>:
-                    </label>
-                    <select class="form-select" id="clothes" name="clothes" required>
-                    <option value="">Bitte wählen</option>
-                    
-                    <option value="herren">Herren</option>
-                    <option value="damen">Damen</option>
-                    <option value="kinder">Kinder</option>
-                    <option value="gemischt">Gemischt</option>
-                    </select>
-                </div>
+                    <!-- 6. Absenden-Button -->
+                    <button type="submit" class="btn btn-primary">Spende registrieren</button>
+                </form>
+            </section>
 
-                <!-- 5. Krisengebiet -->
-                <div class="mb-3">
-                    <label for="location" class="form-label">
-                        Krisengebiet<span class="text-danger" aria-hidden="true">*</span>:
-                    </label>
-                    <select class="form-select" id="location" name="location" required>
-                    <option value="">Bitte wählen</option>
-                    <option value="beliebig">Wo es am dringendsten gebraucht wird</option>
-                    <option value="ukraine">Ukraine</option>
-                    <option value="syrien">Syrien</option>
-                    <option value="afghanistan">Afghanistan</option>
-                    </select>
-                </div>
+            <!-- Abschnitt: Über uns -->
+            <section id="ueber-uns" class="mt-5 pt-4 border-top">
+                <h2>Über uns</h2>
+                <p>
+                    Das Kleiderspender Portal Frankfurt setzt sich dafür ein, gut erhaltene Kleidung unkompliziert dorthin zu bringen, wo sie am dringendsten benötigt wird. Wir organisieren die Abholung im Frankfurter Stadtgebiet und leiten alle Spenden verlässlich an Hilfsorganisationen in aktuellen Krisengebieten weiter.
+                </p>
+            </section>
 
-                <!-- 6. Absenden-Button -->
-                <button type="submit" class="btn btn-primary">Spende registrieren</button>
+            <!-- Abschnitt: Kontakt -->
+            <section id="kontakt" class="mt-5 pt-4 border-top">
+                <h2>Kontakt</h2>
+                <p>Sie haben Fragen zur Abholung oder möchten Kleidung direkt vor Ort abgeben?</p>
+                <address>
+                    <strong>Kleiderspender Annahmestelle Frankfurt</strong><br>
+                    Hanauer Landstraße 210<br>
+                    60314 Frankfurt am Main<br>
+                    Telefon: 069 98765432<br>
+                    E-Mail: <a href="mailto:kontakt@kleiderspenderportal.de">kontakt@kleiderspenderportal.de</a><br>
+                    Öffnungszeiten: Montag bis Freitag von 9:00 bis 16:00 Uhr
+                </address>
+            </section>
 
-            </form>
+            <!-- Abschnitt: Impressum (Passend zur Geschäftsstelle) -->
+            <section id="impressum" class="mt-5 pt-4 border-top">
+                <h2>Impressum</h2>
+                <p><strong>Angaben gemäß § 5 DDG:</strong></p>
+                <p>
+                    Kleiderspender Portal e.V.<br>
+                    Hanauer Landstraße 210<br>
+                    60314 Frankfurt am Main
+                </p>
+                <p>
+                    <strong>Vertreten durch:</strong> Vorstandsvorsitz (Max Mustermann)<br>
+                    <strong>Registereintrag:</strong> Vereinsregister Frankfurt am Main, VR 12345<br>
+                    <strong>Kontakt:</strong> Tel: 069 98765432, E-Mail: kontakt@kleiderspenderportal.de
+                </p>
+            </section>
+
+            <!-- Abschnitt: Datenschutzhinweis (Spezifisch für deinen Prototyp) -->
+            <section id="datenschutz" class="mt-5 pt-4 border-top">
+                <h2>Datenschutzhinweis</h2>
+                <p>
+                    Dieser Datenschutzhinweis informiert über den Umgang mit Daten auf diesem Portal:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Erhobene Daten:</strong> Bei einer Abholspende werden Name, Abholadresse (Straße, Hausnummer, PLZ, Ort), Art der Kleidung sowie das gewünschte Krisengebiet erfasst. Die Angabe einer E-Mail-Adresse ist rein freiwillig. Bei Abgabe vor Ort werden keine personenbezogenen Adressdaten erhoben.
+                    </li>
+                    <li>
+                        <strong>Zweck der Erhebung:</strong> Die Daten dienen im Praxiseinsatz ausschließlich der Tourenplanung und Disposition der Kleiderabholung im Raum Frankfurt.
+                    </li>
+                    <li>
+                        <strong>Status als Prototyp:</strong> Bei dieser Website handelt es sich um ein Studienprojekt zur Demonstration. Sämtliche Daten werden ausschließlich lokal im Browser verarbeitet. Es findet keinerlei dauerhafte Speicherung oder Weiterleitung an Backend-Systeme statt.
+                    </li>
+                </ul>
+            </section>
+
         </main>
 
         <footer class="bg-light py-4 mt-5 text-center small text-body-secondary">
@@ -174,11 +234,11 @@
 
                 <!-- Rechtliche Links -->
                 <ul class="list-inline mb-2">
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-reset">Impressum</a></li>
+                    <li class="list-inline-item"><a href="#impressum" class="text-decoration-none text-reset">Impressum</a></li>
                     <li class="list-inline-item">&middot;</li>
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-reset">Datenschutz</a></li>
+                    <li class="list-inline-item"><a href="#datenschutz" class="text-decoration-none text-reset">Datenschutz</a></li>
                     <li class="list-inline-item">&middot;</li>
-                    <li class="list-inline-item"><a href="#" class="text-decoration-none text-reset">Kontakt</a></li>
+                    <li class="list-inline-item"><a href="#kontakt" class="text-decoration-none text-reset">Kontakt</a></li>
                 </ul>
 
                 <!-- Copyright / Hinweis -->
