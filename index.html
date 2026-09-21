@@ -15,20 +15,19 @@
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container">
 
-                    <!-- 1. Logo & Portalname -->
+                    <!-- Logo & Portalname -->
                     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                         <img src="img/logo.png" alt="Logo des Kleiderspender Portals" width="60" height="48" class="d-inline-block align-text-top">
                         <span>Kleiderspender Portal</span>
                     </a>
 
-                    <!-- 2. Hamburger Menü für mobile Ansicht (wird automatisch auf kleineren Bildschirmen angezeigt)-->
+                    <!-- Hamburger Menü für mobile Ansicht (wird automatisch auf kleineren Bildschirmen angezeigt)-->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Navigation umschalten">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!-- 3. Die Menüpunkte -->
+                    <!-- Die Menüpunkte -->
                     <div class="collapse navbar-collapse" id="navbarContent">
-                        <!-- 'ms-auto' schiebt die Links an den rechten Rand. Falls sie links stehen sollen, nimm stattdessen 'me-auto' -->
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#start">Start</a>
@@ -72,7 +71,7 @@
                     </fieldset>
 
                     <div id="abholFelder">
-                        <!-- 1. Name -->
+                        <!-- Name -->
                         <div class="mb-3">
                             <label for="name" class="form-label">
                                 Name<span class="text-danger" aria-hidden="true">*</span>:
@@ -80,7 +79,7 @@
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
 
-                        <!-- 2. E-Mail -->
+                        <!-- E-Mail -->
                         <div class="mb-3">
                             <label for="email" class="form-label">
                                 E-Mail:
@@ -88,7 +87,7 @@
                             <input type="email" class="form-control" id="email" name="email">
                         </div>
 
-                        <!-- 3. Straße und Hausnummer -->
+                        <!-- Straße und Hausnummer -->
                         <div class="mb-3">
                             <label for="strasse" class="form-label">
                                 Straße und Hausnummer<span class="text-danger" aria-hidden="true">*</span>:
@@ -129,36 +128,36 @@
 
                     </div>
 
-                    <!-- 4. Art der Kleidung -->
+                    <!-- Art der Kleidung -->
                     <div class="mb-3">
                         <label for="clothes" class="form-label">
                             Art der Kleidung<span class="text-danger" aria-hidden="true">*</span>:
                         </label>
                         <select class="form-select" id="clothes" name="clothes" required>
-                        <option value="">Bitte wählen</option>
-                        
-                        <option value="herren">Herren</option>
-                        <option value="damen">Damen</option>
-                        <option value="kinder">Kinder</option>
-                        <option value="gemischt">Gemischt</option>
+                            <option value="">Bitte wählen</option>
+                            
+                            <option value="herren">Herren</option>
+                            <option value="damen">Damen</option>
+                            <option value="kinder">Kinder</option>
+                            <option value="gemischt">Gemischt</option>
                         </select>
                     </div>
 
-                    <!-- 5. Krisengebiet -->
+                    <!-- Krisengebiet -->
                     <div class="mb-3">
                         <label for="location" class="form-label">
                             Krisengebiet<span class="text-danger" aria-hidden="true">*</span>:
                         </label>
-                        <select class="form-select" id="location" name="location" required>
-                        <option value="">Bitte wählen</option>
-                        <option value="beliebig">Wo es am dringendsten gebraucht wird</option>
-                        <option value="ukraine">Ukraine</option>
-                        <option value="syrien">Syrien</option>
-                        <option value="afghanistan">Afghanistan</option>
+                            <select class="form-select" id="location" name="location" required>
+                            <option value="">Bitte wählen</option>
+                            <option value="beliebig">Wo es am dringendsten gebraucht wird</option>
+                            <option value="ukraine">Ukraine</option>
+                            <option value="syrien">Syrien</option>
+                            <option value="afghanistan">Afghanistan</option>
                         </select>
                     </div>
 
-                    <!-- 6. Absenden-Button -->
+                    <!-- Absenden-Button -->
                     <button type="submit" class="btn btn-primary">Spende registrieren</button>
                 </form>
             </section>

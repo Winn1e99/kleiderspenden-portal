@@ -42,7 +42,7 @@ function felderAktualisieren()
     }
 }
 
-//Reine PLZ-Prüflogik in eigene Funktion ausgelagert
+// Reine PLZ-Prüflogik in eigene Funktion ausgelagert
 function plzIstImAbholgebiet() 
 {
     const eingegebenePLZ = plzInput.value.trim();
@@ -63,7 +63,7 @@ formular.addEventListener("submit", function (event)
     event.preventDefault(); // Standard-Formularübermittlung verhindern
     console.log("Formular abgeschickt");
 
-    // Wichtig: Fehleranzeige vor jedem neuen Abseneden zurücksetzen
+    // Wichtig: Fehleranzeige vor jedem neuen Absenden zurücksetzen
     fehleranzeigeZuruecksetzen();
 
     const gewaehlt = document.querySelector('input[name="uebergabeweg"]:checked').value;
@@ -78,7 +78,42 @@ formular.addEventListener("submit", function (event)
         return;
     }
     console.log("PLZ-Prüfung ERFOLGREICH oder Geschäftsstelle gewählt.");
+ 
+    // Text der Auswahllisten holen
+    const clothesSelect = document.getElementById("clothes");
+    const locationSelect = document.getElementById("location");
+    const clothesText = clothesSelect.options[clothesSelect.selectedIndex].text;
+    const locationText = locationSelect.options[locationSelect.selectedIndex].text;
 
+    // Datum und Uhrzeit der Registrierung erzeugen
+    const jetzt = new Date();
+    const datumText = jetzt.toLocaleDateString("de-DE");
+    const uhrzeitText = jetzt.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
+
+    // Ort bestimmen je nach Übergabeweg
+    let ortText = "";
+    if (gewaehlt === "geschaeftsstelle") {
+        ortText = "Geschäftsstelle (Hanauer Landstraße 210, 60314 Frankfurt am Main)";
+    } else {
+        const strasse = document.getElementById("strasse").value.trim();
+        const plz = plzInput.value.trim();
+        const ort = document.getElementById("ort").value.trim();
+        ortText = `Abholung an: ${strasse}, ${plz} ${ort}`;
+    }
+
+    // Datenobjekt schnüren und im sessionStorage ablegen
+    const spendenDaten = {
+        clothes: clothesText,
+        location: locationText,
+        datum: datumText,
+        uhrzeit: uhrzeitText,
+        ort: ortText
+    };
+
+    sessionStorage.setItem("spendenDaten", JSON.stringify(spendenDaten));
+
+    // Weiterleiten auf die Bestätigungsseite
+    window.location.href = "bestaetigung.html";
 });
 
 radios.forEach(function (radio) 
