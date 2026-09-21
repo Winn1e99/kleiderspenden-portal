@@ -1,5 +1,3 @@
-console.log("app.js läuft");
-
 // Referenz-PLZ als globale Konstante ganz oben definieren
 const GESCHAEFTSSTELLE_PLZ = "60314";
 
@@ -14,7 +12,6 @@ const btnZuGeschaeftsstelle = document.getElementById("btnZuGeschaeftsstelle");
 function felderAktualisieren() 
 {
     const gewaehlt = document.querySelector('input[name="uebergabeweg"]:checked').value;
-    console.log("Übergabeweg:", gewaehlt);
 
     if (gewaehlt === "abholung") 
     {
@@ -62,7 +59,6 @@ function fehleranzeigeZuruecksetzen()
 formular.addEventListener("submit", function (event) 
 {
     event.preventDefault(); // Standard-Formularübermittlung verhindern
-    console.log("Formular abgeschickt");
 
     // Wichtig: Fehleranzeige vor jedem neuen Absenden zurücksetzen
     fehleranzeigeZuruecksetzen();
@@ -70,7 +66,6 @@ formular.addEventListener("submit", function (event)
     const gewaehlt = document.querySelector('input[name="uebergabeweg"]:checked').value;
     if (gewaehlt === "abholung" && !plzIstImAbholgebiet()) 
     {
-        console.log("PLZ-Prüfung FEHLGESCHLAGEN: Nicht im selben Gebiet.");
         // Roter Rahmen und Fehlermeldung am Feld
         plzInput.classList.add("is-invalid");
         // Gelbe Hinweisbox mit Button einblenden
@@ -78,7 +73,6 @@ formular.addEventListener("submit", function (event)
         plzInput.focus(); // Setzt den Fokus auf das PLZ-Feld, damit der Benutzer sofort sieht, wo das Problem liegt
         return;
     }
-    console.log("PLZ-Prüfung ERFOLGREICH oder Geschäftsstelle gewählt.");
  
     // Text der Auswahllisten holen
     const clothesSelect = document.getElementById("clothes");
