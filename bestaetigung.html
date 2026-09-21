@@ -103,21 +103,6 @@
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-        <script>
-            // Daten aus dem sessionStorage holen
-            const gespeicherteDaten = sessionStorage.getItem("spendenDaten");
-
-            if (gespeicherteDaten) 
-            {
-                const daten = JSON.parse(gespeicherteDaten);
-
-                document.getElementById("bestaetigung-kleidung").textContent = daten.clothes;
-                document.getElementById("bestaetigung-krisengebiet").textContent = daten.location;
-                document.getElementById("bestaetigung-datum").textContent = daten.datum;
-                document.getElementById("bestaetigung-uhrzeit").textContent = daten.uhrzeit;
-                document.getElementById("bestaetigung-ort").textContent = daten.ort;
-            }
-        </script>
+        <script src="js/bestaetigung.js"></script>
     </body>
 </html>
