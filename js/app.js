@@ -35,9 +35,10 @@ function felderAktualisieren()
         abholInputs.forEach(function (feld) 
         {
             feld.required = false;
+            feld.value = ""; // Eingaben löschen, wenn die Felder ausgeblendet werden
         });
 
-        // Wenn auf Geschäftstelle gewechselt wird, eventuelle Fehler/Boxen entfernen
+        // Wenn auf Geschäftstelle gewechselt wird = Fehler/Boxen entfernen
         fehleranzeigeZuruecksetzen();
     }
 }
@@ -111,6 +112,9 @@ formular.addEventListener("submit", function (event)
     };
 
     sessionStorage.setItem("spendenDaten", JSON.stringify(spendenDaten));
+
+    // Formular zurücksetzen
+    formular.reset();
 
     // Weiterleiten auf die Bestätigungsseite
     window.location.href = "bestaetigung.html";
