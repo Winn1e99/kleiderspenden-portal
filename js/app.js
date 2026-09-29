@@ -87,9 +87,12 @@ formular.addEventListener("submit", function (event)
 
     // Ort bestimmen je nach Übergabeweg
     let ortText = "";
-    if (gewaehlt === "geschaeftsstelle") {
+    if (gewaehlt === "geschaeftsstelle") 
+    {
         ortText = "Geschäftsstelle (Hanauer Landstraße 210, 60314 Frankfurt am Main)";
-    } else {
+    } 
+    else 
+    {
         const strasse = document.getElementById("strasse").value.trim();
         const plz = plzInput.value.trim();
         const ort = document.getElementById("ort").value.trim();
@@ -97,7 +100,8 @@ formular.addEventListener("submit", function (event)
     }
 
     // Datenobjekt schnüren und im sessionStorage ablegen
-    const spendenDaten = {
+    const spendenDaten = 
+    {
         clothes: clothesText,
         location: locationText,
         datum: datumText,
